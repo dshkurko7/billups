@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PhoenixImport": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Temp\\phoenix.csv \"Server=DESKTOP-43T6PR8\\SQLEXPRESS;Database=POI;User Id=iis;Password=P@ssw0rd; TrustServerCertificate=True;\" phoenix"
+    }
+  }
+}
