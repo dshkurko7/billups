@@ -14,7 +14,9 @@ In our case, the data is "scattered" across the relational DB tables (the databa
 3. Load - at this stage, the data can be loaded somewhere for use. For example, into any application or accepted by any DB. In our case, the stored procedure receives input parameters in the JSON format and returns the result in the GeoJSON format. I assume that data in this format can be used, for example, in navigation applications.
 
 Step-by-step instructions
-1. The computer must have MSSQL EXPRESS 19 with Microsoft Management Studio installed.
+1. The computer must have:
+    MSSQL EXPRESS 19 with Microsoft Management Studio installed.
+    Microsoft Visual Studio 2022 Community installed.
 2. Run the POI_DB_create script.
 
 3. Run the importer application:
