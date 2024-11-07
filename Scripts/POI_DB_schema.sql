@@ -279,18 +279,7 @@ BEGIN
         SELECT 
 			'Feature' as [type],
 			JSON_QUERY('{"type":"Point","coordinates":['+i.longitude+','+i.latitude+']}') as [geometry],
-			JSON_QUERY('{
-				"id":"'+i.id+'",
-				"parent_id":'+IIF(i.parent_id is null,'null','"'+i.parent_id+'"')+',
-				"country_code":'+IIF(c.country_code is null,'null','"'+c.country_code+'"')+',
-				"region_code":'+IIF(c.region_code is null,'null','"'+c.region_code+'"')+',
-				"city_name":'+IIF(c.name is null,'null','"'+c.name+'"')+',			
-				"top_category_name":'+IIF(t.name is null,'null','"'+t.name+'"')+',
-				"sub_category_name":'+IIF(s.name is null,'null','"'+s.name+'"')+',
-				"location_name":'+IIF(i.location_name is null,'null','"'+location_name+'"')+',
-				"operation_hours":'+IIF(i.operation_hours is null,'null',i.operation_hours)+',
-				"polygon_wkt":'+IIF(i.polygon_wkt is null,'null', '"'+i.polygon_wkt.ToString()+'"')+'
-			}') as [properties]
+			JSON_QUERY('{"id":"'+i.id+'","parent_id":'+IIF(i.parent_id is null,'null','"'+i.parent_id+'"')+',"country_code":'+IIF(c.country_code is null,'null','"'+c.country_code+'"')+',"region_code":'+IIF(c.region_code is null,'null','"'+c.region_code+'"')+',"city_name":'+IIF(c.name is null,'null','"'+c.name+'"')+',"top_category_name":'+IIF(t.name is null,'null','"'+t.name+'"')+',"sub_category_name":'+IIF(s.name is null,'null','"'+s.name+'"')+',"location_name":'+IIF(i.location_name is null,'null','"'+location_name+'"')+',"operation_hours":'+IIF(i.operation_hours is null,'null',i.operation_hours)+',"polygon_wkt":'+IIF(i.polygon_wkt is null,'null', '"'+i.polygon_wkt.ToString()+'"')+'}') as [properties]
             
 		FROM items i 
 			LEFT JOIN cities c on i.city_id = c.id
