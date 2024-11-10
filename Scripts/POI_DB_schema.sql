@@ -182,28 +182,28 @@ GO
 --TRANSFER DATA TO DB TABLES FROM INITIAL TABLE
 --=============================================
 
-
+delete from items
+delete from cities
+delete from regions
+delete from sub_categories
+delete from top_categories
 delete from brands
+
 insert into brands (name, unique_id)
 select distinct brand, brand_id from phoenix where brand_id is not null order by brand
 
-delete from top_categories
 insert into top_categories (name)
 select distinct top_category from phoenix where top_category is not null order by top_category
 
-delete from sub_categories
 insert into sub_categories (top_category_id, name)
 select distinct tc.id, p.sub_category from phoenix p join top_categories tc on p.top_category=tc.name order by tc.id, p.sub_category
 
-delete from regions
 insert into regions (region_code, country_code)
 select distinct country_code, region from phoenix where region is not null order by country_code, region
 
-delete from cities
 insert into cities (country_code, region_code, name)
 select distinct country_code, region, city from phoenix order by country_code, region, city
 
-delete from items
 insert into items (id, parent_id, brand_id, sub_category_id, postal_code, location_name, latitude, longitude, city_id, operation_hours, polygon_wkt)
 select p.id, p.parent_id, b.id, sc.id, p.postal_code, p.location_name, p.latitude, p.longitude, c.id, p.operation_hours, p.polygon_wkt
 from phoenix p
