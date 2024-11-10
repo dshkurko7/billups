@@ -182,12 +182,12 @@ GO
 --TRANSFER DATA TO DB TABLES FROM INITIAL TABLE
 --=============================================
 
-delete from items
-delete from cities
-delete from regions
-delete from sub_categories
-delete from top_categories
-delete from brands
+--delete from items
+--delete from cities
+--delete from regions
+--delete from sub_categories
+--delete from top_categories
+--delete from brands
 
 insert into brands (name, unique_id)
 select distinct brand, brand_id from phoenix where brand_id is not null order by brand
